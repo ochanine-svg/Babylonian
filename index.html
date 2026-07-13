@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>The Babylonian Method</title>
+
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      },
+      chtml: {
+        scale: 1
+      }
+    };
+  </script>
+  <script defer
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 18px;
+      line-height: 1.6;
+      color: #202124;
+      background: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+    }
+
+    body {
+      overflow-x: hidden;
+    }
+
+    main {
+      width: min(820px, 100%);
+      margin: 0 auto;
+      padding: 58px 28px 60px;
+    }
+
+    h1 {
+      margin: 0 0 2.2rem;
+      text-align: center;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      line-height: 1.2;
+    }
+
+    p {
+      margin: 0 0 1.35rem;
+    }
+
+    .question {
+      margin-bottom: 2.2rem;
+    }
+
+    .step {
+      margin-bottom: 1.6rem;
+    }
+
+    .emphasis {
+      font-weight: 700;
+    }
+
+    hr {
+      border: 0;
+      border-top: 1px solid #777;
+      margin: 2.2rem 0;
+    }
+
+    .note {
+      margin-top: 1.6rem;
+    }
+
+    mjx-container[display="true"] {
+      margin: 1rem 0 !important;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+
+    @media (max-width: 600px) {
+      :root {
+        font-size: 16px;
+      }
+
+      main {
+        padding: 34px 18px 40px;
+      }
+    }
+
+    @media print {
+      main {
+        width: 100%;
+        padding: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <h1>The Babylonian Method</h1>
+
+    <p class="question">
+      <strong>Q:</strong>
+      What is \(\sqrt{5}\)? By definition, it solves \(x^2-5=0\).
+      But how can we compute this number?
+    </p>
+
+    <p class="step">
+      Make an initial guess for the square root. For example,
+      \(x_0=2.5\).
+    </p>
+
+    <p class="step">
+      Too big, since \(2.5^2=6.25\). Then \(5/2.5\) is too small.
+    </p>
+
+    <p class="step">
+      This suggests a way to improve upon the initial guess:
+      average your number that is too big and your number that is too small.
+    </p>
+
+    \[
+      x_1=\frac12\left(2.5+\frac{5}{2.5}\right)=2.25.
+    \]
+
+    <p class="step">Repeat.</p>
+
+    \[
+      x_2=\frac12\left(2.25+\frac{5}{2.25}\right)
+      =2.236\overline{1}.
+    \]
+
+    <p>
+      One could keep going, but this is already so close.
+      \(2.236\overline{1}\) is accurate for \(\sqrt5\) to three decimal places!
+    </p>
+
+    \[
+      \sqrt5\approx 2.236
+    \]
+
+    <p>
+      Without a calculator? Note that in this example, we could have used
+      fractions throughout:
+    </p>
+
+    \[
+      x_0=\frac52,\qquad
+      x_1=\frac94,\qquad
+      x_2=\frac{161}{72},\ldots
+    \]
+
+    <p>
+      Then we get rational approximations of the square root, calculator-free.
+    </p>
+
+    <hr>
+
+    <p class="note">
+      This ancient method can be understood on its own—it is fun to think
+      about why it works. Or it can be viewed as a special case of Newton's
+      method. Newton's method is for approximating zeros of functions and
+      uses the derivative. In this example, the function would be
+      \(f(x)=x^2-5\). Newton's method is the content of Section 4.8 in your
+      Calculus book.
+    </p>
+  </main>
+</body>
+</html>
